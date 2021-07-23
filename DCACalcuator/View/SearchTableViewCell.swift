@@ -1,0 +1,14 @@
+//
+//  SearchTableViewCell.swift
+//  DCACalcuator
+//
+//  Created by JeongminKim on 2021/07/23.
+//
+
+import UIKit
+
+class SearchTableViewCell: UITableViewCell {
+    @IBOutlet weak var assetNameLabel: UILabel!
+    @IBOutlet weak var assetSymbolLabel: UILabel!
+    @IBOutlet weak var assetTypeLabel: UILabel!
+}
