@@ -1,0 +1,6 @@
+framework module Pods_DCACalcuator {
+  umbrella header "Pods-DCACalcuator-umbrella.h"
+
+  export *
+  module * { export * }
+}
