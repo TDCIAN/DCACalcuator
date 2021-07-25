@@ -9,6 +9,11 @@ import UIKit
 import Combine
 
 class SearchTableViewController: UITableViewController {
+    
+    private enum Mode {
+        case onboarding
+        case search
+    }
 
     private lazy var searchController: UISearchController = {
         let sc = UISearchController(searchResultsController: nil)
@@ -23,16 +28,22 @@ class SearchTableViewController: UITableViewController {
     private let apiService = APIService()
     private var subscribers = Set<AnyCancellable>()
     private var searchResults: SearchResults?
+    @Published private var mode: Mode = .onboarding
     @Published private var searchQuery = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
+        setupTableView()
         observeForm()
     }
 
     private func setupNavigationBar() {
         navigationItem.searchController = searchController
+    }
+    
+    private func setupTableView() {
+        tableView.tableFooterView = UIView()
     }
     
     private func observeForm() {
@@ -54,6 +65,17 @@ class SearchTableViewController: UITableViewController {
                     self.tableView.reloadData()
                 }.store(in: &self.subscribers)
             }.store(in: &subscribers)
+        
+        $mode.sink { [unowned self] mode in
+            switch mode {
+            case .onboarding:
+                let redView = UIView()
+                redView.backgroundColor = .red
+                self.tableView.backgroundView = redView
+            case .search:
+                self.tableView.backgroundView = nil
+            }
+        }.store(in: &subscribers)
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -78,4 +100,7 @@ extension SearchTableViewController: UISearchResultsUpdating, UISearchController
         self.searchQuery = searchQuery
     }
     
+    func willPresentSearchController(_ searchController: UISearchController) {
+        mode = .search        
+    }
 }
