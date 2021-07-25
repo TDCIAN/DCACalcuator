@@ -22,12 +22,12 @@ class SearchTableViewController: UITableViewController {
     
     private let apiService = APIService()
     private var subscribers = Set<AnyCancellable>()
+    private var searchResults: SearchResults?
     @Published private var searchQuery = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
-//        performSearch()
         observeForm()
     }
 
@@ -50,20 +50,22 @@ class SearchTableViewController: UITableViewController {
                     }
                 } receiveValue: { searchResults in
                     print("observeForm - receiveValue: \(searchResults)")
+                    self.searchResults = searchResults
+                    self.tableView.reloadData()
                 }.store(in: &self.subscribers)
             }.store(in: &subscribers)
     }
     
-    private func performSearch() {
-        
-    }
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return self.searchResults?.items.count ?? 0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cellId", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cellId", for: indexPath) as! SearchTableViewCell
+        if let searchResults = self.searchResults {
+            let searchResult = searchResults.items[indexPath.row]
+            cell.configure(with: searchResult)
+        }
         return cell
     }
 
