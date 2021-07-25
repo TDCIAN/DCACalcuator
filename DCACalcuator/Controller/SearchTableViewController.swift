@@ -22,29 +22,40 @@ class SearchTableViewController: UITableViewController {
     
     private let apiService = APIService()
     private var subscribers = Set<AnyCancellable>()
+    @Published private var searchQuery = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
-        performSearch()
+//        performSearch()
+        observeForm()
     }
 
     private func setupNavigationBar() {
         navigationItem.searchController = searchController
     }
     
+    private func observeForm() {
+        // 검색결과로 서칭할 때 매 순간 검색이 들어가면 비효율적이므로 0.75초마다 검색하도록 설정
+        $searchQuery
+            .debounce(for: .milliseconds(750), scheduler: RunLoop.main)
+            .sink { [unowned self] searchQuery in
+                print("observeForm - searchQuery: \(searchQuery)")
+                self.apiService.fetchSymbolsPublisher(keywords: searchQuery).sink { completion in
+                    switch completion {
+                    case .finished:
+                        break
+                    case .failure(let error):
+                        print("observeForm - error: \(error.localizedDescription)")
+                    }
+                } receiveValue: { searchResults in
+                    print("observeForm - receiveValue: \(searchResults)")
+                }.store(in: &self.subscribers)
+            }.store(in: &subscribers)
+    }
+    
     private func performSearch() {
-        apiService.fetchSymbolsPublisher(keywords: "S&P500").sink { completion in
-            switch completion {
-            case .finished:
-                break
-            case .failure(let error):
-                print("performSearch - error: \(error.localizedDescription)")
-            }
-        } receiveValue: { searchResults in
-            print("performSearch - receiveValue: \(searchResults)")
-        }.store(in: &subscribers)
-
+        
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -60,7 +71,9 @@ class SearchTableViewController: UITableViewController {
 
 extension SearchTableViewController: UISearchResultsUpdating, UISearchControllerDelegate {
     func updateSearchResults(for searchController: UISearchController) {
-        
+        guard let searchQuery = searchController.searchBar.text, !searchQuery.isEmpty else { return }
+        print("updateSearchResults: \(searchQuery)")
+        self.searchQuery = searchQuery
     }
     
 }
