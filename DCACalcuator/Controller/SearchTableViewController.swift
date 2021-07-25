@@ -40,6 +40,7 @@ class SearchTableViewController: UITableViewController {
 
     private func setupNavigationBar() {
         navigationItem.searchController = searchController
+        navigationItem.title = "Search"
     }
     
     private func setupTableView() {
@@ -69,9 +70,7 @@ class SearchTableViewController: UITableViewController {
         $mode.sink { [unowned self] mode in
             switch mode {
             case .onboarding:
-                let redView = UIView()
-                redView.backgroundColor = .red
-                self.tableView.backgroundView = redView
+                self.tableView.backgroundView = SearchPlaceholderView()
             case .search:
                 self.tableView.backgroundView = nil
             }
@@ -101,6 +100,6 @@ extension SearchTableViewController: UISearchResultsUpdating, UISearchController
     }
     
     func willPresentSearchController(_ searchController: UISearchController) {
-        mode = .search        
+        mode = .search
     }
 }
