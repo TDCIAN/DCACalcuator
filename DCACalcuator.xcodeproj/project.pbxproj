@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1467F4B54AF84460CBC05C03 /* Pods_DCACalcuator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18104DA85B7C940FEB11F3E1 /* Pods_DCACalcuator.framework */; };
+		1E47679A26B0240A006583EF /* TimeSeriesMonthlyAdjusted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E47679926B0240A006583EF /* TimeSeriesMonthlyAdjusted.swift */; };
 		1E708B2226AA964A007257EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E708B2126AA964A007257EB /* AppDelegate.swift */; };
 		1E708B2426AA964A007257EB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E708B2326AA964A007257EB /* SceneDelegate.swift */; };
 		1E708B2626AA964A007257EB /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E708B2526AA964A007257EB /* SearchTableViewController.swift */; };
@@ -23,6 +24,7 @@
 
 /* Begin PBXFileReference section */
 		18104DA85B7C940FEB11F3E1 /* Pods_DCACalcuator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DCACalcuator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E47679926B0240A006583EF /* TimeSeriesMonthlyAdjusted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSeriesMonthlyAdjusted.swift; sourceTree = "<group>"; };
 		1E708B1E26AA964A007257EB /* DCACalcuator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DCACalcuator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E708B2126AA964A007257EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1E708B2326AA964A007257EB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				1E708B3D26AAA6AE007257EB /* SearchResults.swift */,
+				1E47679926B0240A006583EF /* TimeSeriesMonthlyAdjusted.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 				1E708B3B26AAA4A8007257EB /* APIService.swift in Sources */,
 				1E708B3826AAA08F007257EB /* SearchTableViewCell.swift in Sources */,
 				1E708B2226AA964A007257EB /* AppDelegate.swift in Sources */,
+				1E47679A26B0240A006583EF /* TimeSeriesMonthlyAdjusted.swift in Sources */,
 				1E708B3E26AAA6AE007257EB /* SearchResults.swift in Sources */,
 				1E708B2426AA964A007257EB /* SceneDelegate.swift in Sources */,
 				1EE410D726AD9A85004DA22B /* SearchPlaceholderView.swift in Sources */,
