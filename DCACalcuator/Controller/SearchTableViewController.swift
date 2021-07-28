@@ -95,7 +95,25 @@ class SearchTableViewController: UITableViewController, UIAnimatable {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "showCalculator", sender: nil)
+        if let searchResults = self.searchResults {
+            let symbol = searchResults.items[indexPath.row].symbol
+            handleSelection(for: symbol)
+        }
+    }
+    
+    private func handleSelection(for symbol: String) {
+        apiService.fetchTimeSeriesMonthlyAdjustedPublisher(keywords: symbol).sink { completionResult in
+            switch completionResult {
+            case .failure(let error):
+                print("handleSelection - error: \(error)")
+            case .finished:
+                break
+            }
+        } receiveValue: { timeSeriesMonthlyAdjusted in
+            print("handleSelection - success: \(timeSeriesMonthlyAdjusted)")
+        }.store(in: &subscribers)
+
+//        performSegue(withIdentifier: "showCalculator", sender: nil)
     }
 
 }
