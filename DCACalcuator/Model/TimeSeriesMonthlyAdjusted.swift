@@ -25,7 +25,7 @@ struct TimeSeriesMonthlyAdjusted: Decodable {
         var monthInfos: [MonthInfo] = []
         let sortedTimeSeries = timeSeries.sorted(by: { $0.key > $1.key })
         sortedTimeSeries.forEach { dateString, ohlc in
-            var dateFormatter = DateFormatter()
+            let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy-MM-dd"
             let date = dateFormatter.date(from: dateString)!
             let adjustedOpen = getAdjustedOpen(ohlc: ohlc)
