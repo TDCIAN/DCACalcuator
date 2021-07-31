@@ -20,6 +20,7 @@
 		1E708B3E26AAA6AE007257EB /* SearchResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E708B3D26AAA6AE007257EB /* SearchResults.swift */; };
 		1EC191B426B50F03002C013F /* CalculatorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC191B326B50F03002C013F /* CalculatorTableViewController.swift */; };
 		1EC191B626B50F7B002C013F /* Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC191B526B50F7B002C013F /* Asset.swift */; };
+		1EC191B926B513DB002C013F /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC191B826B513DB002C013F /* String+Extensions.swift */; };
 		1EE410D726AD9A85004DA22B /* SearchPlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE410D626AD9A85004DA22B /* SearchPlaceholderView.swift */; };
 		1EE410DA26AD9D32004DA22B /* UIAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE410D926AD9D32004DA22B /* UIAnimatable.swift */; };
 /* End PBXBuildFile section */
@@ -40,6 +41,7 @@
 		1E708B3D26AAA6AE007257EB /* SearchResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResults.swift; sourceTree = "<group>"; };
 		1EC191B326B50F03002C013F /* CalculatorTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorTableViewController.swift; sourceTree = "<group>"; };
 		1EC191B526B50F7B002C013F /* Asset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Asset.swift; sourceTree = "<group>"; };
+		1EC191B826B513DB002C013F /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		1EE410D626AD9A85004DA22B /* SearchPlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlaceholderView.swift; sourceTree = "<group>"; };
 		1EE410D926AD9D32004DA22B /* UIAnimatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAnimatable.swift; sourceTree = "<group>"; };
 		40699A6E89814EBB01769B8C /* Pods-DCACalcuator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DCACalcuator.release.xcconfig"; path = "Target Support Files/Pods-DCACalcuator/Pods-DCACalcuator.release.xcconfig"; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 		1E708B2026AA964A007257EB /* DCACalcuator */ = {
 			isa = PBXGroup;
 			children = (
+				1EC191B726B513CC002C013F /* Extensions */,
 				1EE410D826AD9D17004DA22B /* Protocol */,
 				1E708B3C26AAA6A3007257EB /* Model */,
 				1E708B3926AAA49C007257EB /* Service */,
@@ -128,6 +131,14 @@
 				1EC191B526B50F7B002C013F /* Asset.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		1EC191B726B513CC002C013F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1EC191B826B513DB002C013F /* String+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		1EE410D826AD9D17004DA22B /* Protocol */ = {
@@ -273,6 +284,7 @@
 				1EE410DA26AD9D32004DA22B /* UIAnimatable.swift in Sources */,
 				1E708B3B26AAA4A8007257EB /* APIService.swift in Sources */,
 				1EC191B626B50F7B002C013F /* Asset.swift in Sources */,
+				1EC191B926B513DB002C013F /* String+Extensions.swift in Sources */,
 				1EC191B426B50F03002C013F /* CalculatorTableViewController.swift in Sources */,
 				1E708B3826AAA08F007257EB /* SearchTableViewCell.swift in Sources */,
 				1E708B2226AA964A007257EB /* AppDelegate.swift in Sources */,
