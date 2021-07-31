@@ -349,16 +349,10 @@
                                                                     <rect key="frame" x="0.0" y="32" width="382" height="14"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter the initial date of investment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N6v-Vj-1mb">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="187" height="14"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="382" height="14"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="14" id="Eq4-OL-WFj"/>
                                                                             </constraints>
-                                                                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="12"/>
-                                                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                            <nil key="highlightedColor"/>
-                                                                        </label>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="USD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B4r-iK-HXx">
-                                                                            <rect key="frame" x="191" y="0.0" width="191" height="14"/>
                                                                             <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="12"/>
                                                                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <nil key="highlightedColor"/>
@@ -391,13 +385,12 @@
                     </tableView>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="PBy-d6-sEz"/>
                     <connections>
+                        <outlet property="investmentAmountCurrencyLabel" destination="ysM-7s-z48" id="gkD-IZ-QG5"/>
                         <outlet property="nameLabel" destination="SUM-BF-QA8" id="amV-mc-0qe"/>
                         <outlet property="symbolLabel" destination="PAA-aY-Cj8" id="DSn-tS-TEu"/>
                         <outletCollection property="currencyLabels" destination="XVe-ak-ARn" collectionClass="NSMutableArray" id="1tn-hl-bon"/>
-                        <outletCollection property="currencyLabels" destination="ysM-7s-z48" collectionClass="NSMutableArray" id="E7u-sJ-yKu"/>
                         <outletCollection property="currencyLabels" destination="gC6-2h-bJQ" collectionClass="NSMutableArray" id="lZ9-97-n9W"/>
                         <outletCollection property="currencyLabels" destination="h7y-nB-o7m" collectionClass="NSMutableArray" id="ldx-V6-tCJ"/>
-                        <outletCollection property="currencyLabels" destination="B4r-iK-HXx" collectionClass="NSMutableArray" id="3ED-lo-Rsz"/>
                         <segue destination="h2M-b3-Ghr" kind="show" id="yKt-1v-oa8"/>
                     </connections>
                 </tableViewController>
