@@ -27,7 +27,6 @@ class CalculatorTableViewController: UITableViewController {
         investmentAmountCurrencyLabel.text = asset?.searchResult.currency
         currencyLabels.forEach { label in
             label.text = asset!.searchResult.currency.addBrackets()
-            print("asset: \(asset)")
         }
     }
 }
