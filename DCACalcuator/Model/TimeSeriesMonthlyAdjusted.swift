@@ -32,7 +32,7 @@ struct TimeSeriesMonthlyAdjusted: Decodable {
             let monthInfo = MonthInfo(date: date, adjustedOpen: adjustedOpen, adjustedClose: Double(ohlc.adjustedClose)!)
             monthInfos.append(monthInfo)
         }
-        print("sorted: \(sortedTimeSeries)")
+        print("sorted monthInfo: \(sortedTimeSeries)")
         return monthInfos
     }
     
